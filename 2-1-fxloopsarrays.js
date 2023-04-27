@@ -70,16 +70,38 @@ const returnLetters = (array) => {
 }
 
 console.log(returnLetters(comboArr));
+
+
 // Create a function that takes in an array of numbers and returns the sum.
 const addThese1 = [1, 2, 3, 4]
 // output: 10
-
 const addThese2 = []
 // output: 0
+
+//in - array of #s
+//out - sum of array
+//process - iterate through array, adding each value to the previous to obtain total sum
+let sum = 0
+const summingItUp = (array) => {
+    for (let i = 0; i < array.length; i++){
+    sum += array[i]
+        }
+    return sum
+}
+
+console.log(summingItUp(addThese2));
+
+
 
 // Create a function that takes in an array of numbers and returns the index of the largest number.
 const indexHighestNumber = [1, 4, 2, 3]
 // output: 1
+
+//in - array of numbers
+//out - index of largest numnber
+//process - create a function which iterates through an array, determining which number is largest, then identifies and returns its index location. 
+
+
 
 // 🏔 Stretch Goals
 // Create a function that takes in two arrays and returns one array with no duplicate values.
@@ -110,6 +132,9 @@ const addUp3 = 600
 
 // 🏔 Epic Goals
 // Create a function called highLow that takes in a number and returns whether the number is higher or lower than the "answer".
+
+//in - number. out - true/false based on relation to answer. process - create a function named highLow which compares the argument to a specific answer 
+
 // Create an HTML page and link your JavaScript file. More info here.
 // As a user, I see a prompt or input where I can guess a number between 1 and 100 (both inclusive).
 // As a user, I can see if my guess is too high or too low.
