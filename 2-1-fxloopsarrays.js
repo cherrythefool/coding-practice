@@ -186,7 +186,7 @@
 //out - comparatively answers higher or lower
 //process - create a function called high low which compares an input number to a pre-determined answer, determines its relation to the answer, and outputs "higher" if the input > answer and "lower" if input < answer
 
-document.getElementById("idHere").value
+
 
 const answer = Math.floor(Math.random()*100) + 1
 let guesscount = 0
@@ -197,17 +197,18 @@ const tooManyGuesses = () => {
     }
 }
 
-const highLow = (number) => {
-    tooManyGuesses(highLow)
+const highLow = () => {
+    const guess = parseInt(document.querySelector('input[type="text"]').value)
+    tooManyGuesses()
     guesscount += 1
-    if (number === answer){
-        return document.getElementById(button).value(`Wow, you won! Your choice of ${number} matched the answer exactly!`), setTimeout(window.location.reload(), 30)
-    } else if (number < answer){
-        return document.getElementById(button).value(`Your choice, ${number} is lower than the answer.`)
-    } else if (number > answer){
-        return document.getElementById(button).value(`Your choice, ${number} is higher than the answer.`)
+    if (guess === answer){
+        return alert(`Wow, you won! Your choice of ${guess} matched the answer exactly!`), setTimeout(() => window.location.reload(), 30)
+    } else if (guess < answer){
+        return alert(`Your choice, ${guess} is lower than the answer.`)
+    } else if (guess > answer){
+        return alert(`Your choice, ${guess} is higher than the answer.`)
     } else {
-        return document.getElementById(button).value(`I'm not sure how you got here, was your choice (${number}) a number in integer form?`), setTimeout(window.location.reload(), 30)
+        return alert(`I'm not sure how you got here, was your choice (${guess}) a number in integer form?`), setTimeout(window.location.reload(), 30)
     }
 }
 
