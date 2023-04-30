@@ -107,14 +107,22 @@ console.log(coords(stringOfNumbers));
 // Create a function that takes in two arrays as arguments returns one array with no duplicate values.
 const arrr1 = [3, 7, 10, 5, 4, 3]
 const arrr2 = [7, 8, 2, 1, 5, 4]
-// output: [3, 7, 10, 5, 4, 8, 2, 1]
+// output: [3, 7, 10, 5, 4, 8, 2, 1] 
 
 const uniqueMerger = (array1, array2) => {
     const merging = array1.concat(array2)
-    return merging.filter((value, index) => )
-    
+    return merging.filter((value, index) => 
+        merging.indexOf(value) === index)
+  
 }
-console.log(uniqueMerger(arrr1));
+console.log(uniqueMerger(arrr1, arrr2));
+
 // Create a function that takes in an array of mixed data types and returns the first value that is a string. HINT: look into the JavaScript .find() method.
-// const allTheData = [7, null, true, 2, "yo!", false, 4, "hello!"]
+const allTheData = [7, null, true, 2, "yo!", false, 4, "hello!"]
 // output: "yo!"
+
+
+const firstChairViolin = (array) => {
+    return array.find((value) => typeof value === "string")
+}
+console.log(firstChairViolin(allTheData))
