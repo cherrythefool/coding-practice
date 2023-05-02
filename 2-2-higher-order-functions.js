@@ -126,3 +126,4 @@ const firstChairViolin = (array) => {
     return array.find((value) => typeof value === "string")
 }
 console.log(firstChairViolin(allTheData))
+
