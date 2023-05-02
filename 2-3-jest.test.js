@@ -20,11 +20,56 @@
 // Note: You do not need to comment out the old tests or functions. The purpose of tests are to be AUTOMATED. Commenting them out defeats that purpose.
 
 // Write the test for a function that returns "drink coffee" if you are tired and "keep working" if you are not tired.
+describe("tired", () => {
+    it("returns a conditional result", () => {
+        expect(tired("yes")).toEqual("drink coffee")
+        expect(tired("no")).toEqual("keep working")
+    })
+})
+
 // Create the function that will make the test pass.
+const tired = (string) => {
+    if (string === "yes"){
+        return "drink coffee"
+    } else if (string === "no"){
+        return "keep working"
+    } else {
+        return "error encountered"
+    }
+}
+
+
+
+
 // Write the test for a function that returns "relax" if you are stressed and "keep going" if you are not stressed.
+
+describe("stressed", () => {
+    it("returns relax or keep going conditionally", () => {
+        expect(stressed("yes")).toEqual("relax")
+        expect(stressed("no")).toEqual("keep going")
+    })
+})
+
 // Create the function that will make the test pass.
+const stressed = (string) => {
+    let stressing = string
+    return stressing === "yes" ? "relax" : "keep going"
+    }
+
 // Write the test for a function that returns "in budget" if a price is lower than $300.
+
+describe("inBudget", () => {
+    it("determines if price is lower than $300", () =>{
+        expect(inBudget(207)).toEqual(true)
+        expect(inBudget(5600)).toEqual(false)
+    })
+})
+
 // Create the function that will make the test pass.
+
+const inBudget = (price) => {
+    return price < 300 ? true : false
+}
 // Write the test for a function that takes in two numbers and returns the smaller number.
 // Create the function that will make the test pass.
 // Write the test for a function that takes in one numbers and returns whether the number is odd.
