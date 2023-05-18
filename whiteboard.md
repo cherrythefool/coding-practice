@@ -1,12 +1,19 @@
-prompt: secret society named first letter of each of names
-input: array of names (first first namees only for now)
-output: secret society - first letter of names
+js or ruby
 
-take in array of names, iterate through it and determine first letter, assemble first letters into string 
-let namesArray = ["Sarah", "Will", "Rashaan", "CRod", "Luke"]
+prompt: write a fx, takes in a string, checks if the string is a palindrome
 
-const secretNameClub = (array) => {
-    return array.map((value) => value[0]).join("")
-}
+in: string
+out: yes/no palindrome 
+process: write a fx that accepts a string, determine if the string reads the same forward or backwards regardless of case, and returns a yes/no
 
-"SWRCL"
+def is_it_palindrome string
+    if string.downcase.reverse == string.downcase
+        "#{string} is a palindrome"
+    else 
+        "#{string} is not a palindrome"
+    end
+end
+
+Racecar
+eye
+palindrome
