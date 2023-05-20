@@ -153,16 +153,152 @@ ORDER BY lifelength DESC
 66.5
 
 <!-- What are the most common forms of government? (HINT: use count(*)) -->
-
+SELECT governmentform, COUNT(*)
+FROM country
+GROUP BY governmentform
+ORDER BY count DESC
 
 <!-- How many countries are in North America? -->
+SELECT name, region
+FROM country
+WHERE region = 'North America'
+ORDER BY name DESC
+
 <!-- What is the total population of all continents? -->
+SELECT SUM(population)
+FROM country
 
 <!-- Stretch Challenges -->
 <!-- Which countries have the letter ‘z’ in the name? How many? -->
+SELECT name
+FROM country
+WHERE name
+LIKE 'Z%' OR name
+LIKE '%z%' OR name
+LIKE '%z'
+
 <!-- Of the smallest 10 countries by area, which has the biggest gnp? (HINT: Macao) -->
+WITH smallest_ten_area AS (
+	SELECT name, surfacearea, gnp
+	FROM country
+	WHERE gnp > 0
+	ORDER BY surfacearea ASC
+	LIMIT 10
+	)
+SELECT name, gnp
+FROM smallest_ten_area
+ORDER BY gnp DESC
+LIMIT 1
+
 <!-- Of the smallest 10 countries by population, which has the biggest per capita gnp? -->
+WITH smallest_ten_pop AS (
+	SELECT name, population, gnp
+	FROM country
+	WHERE gnp > 0
+	ORDER BY population ASC
+	limit 10
+	)
+SELECT name, gnp
+FROM smallest_ten_pop
+ORDER BY gnp DESC
+
+
 <!-- Of the biggest 10 countries by area, which has the biggest gnp? -->
+WITH big_ten_area AS (
+	SELECT name, surfacearea, gnp
+	FROM country
+	WHERE gnp > 0
+	ORDER BY surfacearea DESC
+	limit 10
+	)
+SELECT name, gnp
+FROM big_ten_area
+ORDER BY gnp DESC
+	
 <!-- Of the biggest 10 countries by population, which has the biggest per capita gnp? -->
+WITH big_ten_area AS (
+	SELECT name, surfacearea, gnp
+	FROM country
+	WHERE gnp > 0
+	ORDER BY surfacearea DESC
+	limit 10
+	)
+SELECT name, gnp
+FROM big_ten_area
+ORDER BY gnp DESC
+	
 <!-- What is the sum of surface area of the 10 biggest countries in the world? The 10 smallest? -->
+WITH ten_big AS (
+	SELECT name, surfacearea
+	FROM country
+	ORDER BY surfacearea DESC
+	LIMIT 10
+	)
+SELECT SUM(surfacearea)
+FROM ten_big
+
+WITH ten_small AS (
+	SELECT name, surfacearea
+	FROM country
+	ORDER BY surfacearea ASC
+	LIMIT 10
+	)
+SELECT SUM(surfacearea)
+FROM ten_small
+
 <!-- What year is this country database from? Cross reference various pieces of information to determine the age of this database. -->
+
+Post-1992 (Bosnia and Herzegovina present)
+Post-1993 (Czech Republic present)
+Post-1994 (Palau indepyear 1994)
+
+2001! (George W. Bush headofstate U.S.)
+
+Pre-2002 (East Timor null for indepyear, would be 2002)
+Pre-2003 (Yugoslavia present, Montenegro omitted)
+Pre-2008 (Kosovo omitted)
+Pre-2011 (South Sudan omitted)
+
+SELECT *
+FROM country
+WHERE name
+LIKE '%udan'
+
+SELECT *
+FROM country
+WHERE name = 'Yugoslavia'
+
+SELECT *
+FROM country
+WHERE name
+LIKE '%osni%'
+
+SELECT *
+FROM country
+WHERE name
+LIKE '%ntene%'
+
+SELECT *
+FROM country
+WHERE name
+LIKE 'Czech%'
+
+SELECT *
+FROM country
+WHERE name = 'Kosovo'
+
+SELECT *
+FROM country
+WHERE indepyear IS NOT null
+ORDER BY indepyear DESC
+
+SELECT name, indepyear
+FROM country
+WHERE name 
+LIKE '%imor'
+
+SELECT name, headofstate
+FROM country
+WHERE name
+LIKE 'United%'
+ORDER BY headofstate
